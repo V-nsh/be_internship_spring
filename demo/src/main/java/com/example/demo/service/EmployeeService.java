@@ -3,18 +3,17 @@ package com.example.demo.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Employee;
 import com.example.demo.repository.EmployeeRepository;
 
-public class EmployeeService {
-         private final EmployeeRepository employeeRepository;
+import lombok.RequiredArgsConstructor;
 
-    @Autowired
-    public EmployeeService(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
+@Service
+@RequiredArgsConstructor
+public class EmployeeService {
+    public final EmployeeRepository employeeRepository;
 
     public List<Employee> getEmployee() {
         return employeeRepository.findAll();
@@ -25,7 +24,6 @@ public class EmployeeService {
     }
 
     public Employee addEmployee(Employee Employee) {
-        Object employeesRepository;
         return employeeRepository.save(Employee);
     }
 

@@ -11,14 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.Employee;
 import com.example.demo.service.EmployeeService;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/api/employee")
-
+@RequiredArgsConstructor
 
 
 
 public class EmployeeController {
-    private  EmployeeService employeeService;
+    private final  EmployeeService employeeService;
 
     @GetMapping
     public ResponseEntity<?> getEmployee() {
